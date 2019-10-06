@@ -1,0 +1,195 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Hello World",
+    "version": "0.1.0",
+    "description": "Runs Hello World from IBM Cloud FaaS, with optional name parameter supplied"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "summary": "Read Root page",
+        "operationId": "index"
+      }
+    },
+    "/data/{data_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "data_id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Numeric ID of the data to get"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "summary": "Retrieve data with data_id",
+        "operationId": "get_data"
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "data_id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Numeric ID of the data to put"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "summary": "Put data with data_id",
+        "operationId": "update_data"
+      },
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "data_id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Numeric ID of the data to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "summary": "Delete data with data_id",
+        "operationId": "delete_data"
+      }
+    },
+    "/data/": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "summary": "Retrieve data",
+        "operationId": "list_data"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "summary": "Post all data",
+        "operationId": "create_data"
+      }
+    },
+    "/data/{data_id}/purchase": {
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "data_id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Numeric ID of the data to purchase"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "summary": "Purchase data",
+        "operationId": "purchase_data"
+      }
+    },
+    "/functions": {
+      "summary": "Access function on IBM Cloud FaaS server",
+      "post": {
+        "summary": "Sends request to run Hello World from IBM Cloud",
+        "description": "",
+        "operationId": "hello_world",
+        "responses": {
+          "default": {
+            "description": "Default error sample response"
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://us-south.functions.cloud.ibm.com/api/v1/namespaces/william.martin2%40marist.edu_dev/actions/hello-world-marist621-wmartin-3?blocking=true",
+      "variables": {
+        "api_key": {
+          "default": "8ac43f19-453a-46cf-bdd7-e4a64ee845cf:DQQjgwJV346Y0Cmn8gb2Shpd2eM2TuOm12NBF3VOr9Q3X8rY9dnapmYPh0iGAiy0",
+          "enum": [
+            ""
+          ],
+          "description": ""
+        },
+        "name": {
+          "default": "{name}",
+          "enum": [
+            ""
+          ],
+          "description": ""
+        }
+      },
+      "description": "Hello World function on IBM Cloud server"
+    }
+  ]
+}
